@@ -53,5 +53,5 @@ jobs:
       - name: Commit and Push changes to repo
         run: |
           chmod +x .github/scripts/push_update.sh
-          .gi`thub/scripts/push_update.sh
+          .github/scripts/push_update.sh
         shell: bash
