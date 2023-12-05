@@ -16,13 +16,17 @@ Usage
 
 import argparse
 import os
+import re
 
 import requests
 from bs4 import BeautifulSoup
 
 HOST = "https://adventofcode.com"
 ENDPOINT = "/2023/day/"
-SELECTOR = ".day-desc"
+
+README = "README.md"
+DESC_SELECTOR = ".day-desc"
+TITLE_SELECTOR = ".day-desc h2"
 
 
 parser = argparse.ArgumentParser(description="Update of daily problem")
@@ -58,12 +62,37 @@ def main(day: int) -> None:
         raise ValueError(f"Day '{day}' is not available yet.")
 
     soup = BeautifulSoup(response.text, "lxml")
-    description = soup.select_one(SELECTOR)
+    description = soup.select_one(DESC_SELECTOR)
 
     path = os.path.join("solutions", f"day_{day}", "problem.md")
 
     with open(path, "w") as file:
         file.write(str(description))
+
+    title = soup.select_one(TITLE_SELECTOR)
+
+    if title is None:
+        raise ValueError(
+            f"HTML response for a problem for a day '{day}' does not have a title."
+        )
+
+    _update_readme(day=day, title=title.text)
+
+
+def _update_readme(day: int, title: str) -> None:
+    problem_re = re.compile(rf"Day {day}")
+
+    with open(README, "r") as f:
+        lines = f.readlines()
+
+    problem = next((line for line in lines if problem_re.search(line) is not None), None)
+
+    if problem is not None:
+        print(f"Problem for day {day} already exists in '{README}' file.")
+        return
+
+    with open(README, "w") as f:
+        f.writelines(lines + [f"\n### {title}\n"])
 
 
 if __name__ == "__main__":
