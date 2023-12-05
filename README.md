@@ -10,3 +10,5 @@ Place to share solutions to AdventCode2023 problems
 ### --- Day 2: Cube Conundrum ---
 
 ### --- Day 3: Gear Ratios ---
+
+### --- Day 4: Scratchcards ---
