@@ -49,8 +49,8 @@ jobs:
 
       - name: Update Problem description for the day
         run: |
-          python .github/scripts/update_description.py -d $chosen_day
           echo "Updated Problem description for the day: $chosen_day"
+          python .github/scripts/update_description.py -d $chosen_day
 
       - name: Commit and Push changes to repo
         run: |
