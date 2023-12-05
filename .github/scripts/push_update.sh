@@ -5,7 +5,9 @@ git config --global user.name "$CI_COMMIT_AUTHOR"
 git config --global user.email "username@users.noreply.github.com"
 
 if [ -n "$(git status --porcelain)" ]; then
-  echo "Update of problem descriptions.";
+  echo "Pulling changes from remote.";
+  git pull
+  echo "Updating problem description.";
   git add .
   git commit -m "$CI_COMMIT_MESSAGE"
   git push
