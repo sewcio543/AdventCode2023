@@ -6,3 +6,5 @@ Place to share solutions to AdventCode2023 problems
 ## Problem contributors
 
 ### --- Day 1: Trebuchet?! ---
+
+### --- Day 2: Cube Conundrum ---
