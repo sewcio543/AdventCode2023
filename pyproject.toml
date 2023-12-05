@@ -1,0 +1,8 @@
+[project]
+name = "AdventCode2023 Solutions"
+
+[tool.black]
+line-length = 94
+
+[tool.isort]
+profile = "black"
