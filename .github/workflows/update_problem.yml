@@ -37,7 +37,7 @@ jobs:
           pip install -r requirements.txt
           pip install -r config/requirements_dev.txt
 
-      - name: Get Target day
+      - name: Update Problem description for the day
         run: |
           if [ -z "${{ github.event.inputs.chosen_day }}" ]; then
             chosen_day=$(date +'%d')
@@ -47,13 +47,11 @@ jobs:
             echo "Chosen day of the month: $chosen_day"
           fi
 
-      - name: Update Problem description for the day
-        run: |
-          echo "Updated Problem description for the day: $chosen_day"
           python .github/scripts/update_description.py -d $chosen_day
+          echo "Updated Problem description for the day: $chosen_day"
 
       - name: Commit and Push changes to repo
         run: |
           chmod +x .github/scripts/push_update.sh
-          .github/scripts/push_update.sh
+          .gi`thub/scripts/push_update.sh
         shell: bash
