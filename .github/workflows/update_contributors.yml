@@ -38,7 +38,7 @@ jobs:
       - name: Update README.md with new contributors
         run: |
           # Get the list of files changed in the last commit
-          files=$(git diff --name-only HEAD^ HEAD)
+          files=$( git diff --name-only HEAD HEAD^1)
 
           # Iterate over each file
           for file in $files
