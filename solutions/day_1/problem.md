@@ -13,3 +13,16 @@ treb7uchet
 <p>In this example, the calibration values of these four lines are <code>12</code>, <code>38</code>, <code>15</code>, and <code>77</code>. Adding these together produces <code><em>142</em></code>.</p>
 <p>Consider your entire calibration document. <em>What is the sum of all of the calibration values?</em></p>
 </article>
+<article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Your calculation isn't quite right. It looks like some of the digits are actually <em>spelled out with letters</em>: <code>one</code>, <code>two</code>, <code>three</code>, <code>four</code>, <code>five</code>, <code>six</code>, <code>seven</code>, <code>eight</code>, and <code>nine</code> <em>also</em> count as valid "digits".</p>
+<p>Equipped with this new information, you now need to find the real first and last digit on each line. For example:</p>
+<pre style="position: relative;"><code>two1nine
+eightwothree
+abcone2threexyz
+xtwone3four
+4nineeightseven2
+zoneight234
+7pqrstsixteen
+</code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+<p>In this example, the calibration values are <code>29</code>, <code>83</code>, <code>13</code>, <code>24</code>, <code>42</code>, <code>14</code>, and <code>76</code>. Adding these together produces <code><em>281</em></code>.</p>
+<p><em>What is the sum of all of the calibration values?</em></p>
+</article>
