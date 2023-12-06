@@ -1,5 +1,5 @@
 CI_COMMIT_MESSAGE="New problem update."
-CI_COMMIT_AUTHOR="Github Actions - Problem Update"
+CI_COMMIT_AUTHOR="Github Actions - BOT"
 
 git config --global user.name "$CI_COMMIT_AUTHOR"
 git config --global user.email "username@users.noreply.github.com"
