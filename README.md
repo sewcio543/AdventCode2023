@@ -14,3 +14,5 @@ Place to share solutions to AdventCode2023 problems
 ### --- Day 4: Scratchcards ---
 
 ### --- Day 5: If You Give A Seed A Fertilizer ---
+
+### --- Day 6: Wait For It ---
