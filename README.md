@@ -18,3 +18,5 @@ Place to share solutions to AdventCode2023 problems
 ### --- Day 6: Wait For It ---
 
 ### --- Day 7: Camel Cards ---
+
+### --- Day 8: Haunted Wasteland ---
