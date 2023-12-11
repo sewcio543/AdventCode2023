@@ -2,8 +2,9 @@ import argparse
 import os
 import re
 from typing import Iterable
+import time
 
-PATH = os.path.join(os.path.dirname(__file__), 'input.txt')
+PATH = os.path.join(os.path.dirname(__file__), "input.txt")
 
 __author__ = "Rafal"
 
@@ -16,12 +17,12 @@ MAPPING = {
     "six": "6",
     "seven": "7",
     "eight": "8",
-    "nine": "9"
+    "nine": "9",
 }
 
 REGEX = {
     1: re.compile(r"[A-Za-z]"),
-    2: re.compile(r"(?=({0}|\d))".format("|".join(MAPPING.keys())))
+    2: re.compile(r"(?=({0}|\d))".format("|".join(MAPPING.keys()))),
 }
 
 parser = argparse.ArgumentParser(description="Part of the daily problem")
@@ -32,6 +33,7 @@ parser.add_argument(
     type=int,
     help="Part of the daily problem - 1 or 2",
 )
+
 
 def calculate_score(input: Iterable) -> int:
     """
@@ -49,9 +51,7 @@ def calculate_score(input: Iterable) -> int:
 
 
 def main(part: int = 1):
-
     with open(PATH) as f:
-
         lines = map(lambda x: x.strip(), f.readlines())
 
         match part:
@@ -66,5 +66,7 @@ def main(part: int = 1):
 
 
 if __name__ == "__main__":
+    tic = time.perf_counter()
     args = parser.parse_args()
     main(part=args.part)
+    print(f"Time elapsed: {time.perf_counter() - tic:0.8f} seconds")
