@@ -38,7 +38,7 @@ parser.add_argument(
 )
 
 
-def get_number(line: str, part: PART) -> int:
+def get_number(line: str, pattern: Pattern) -> int:
     """
     Extracts int from a string that is constructed by taking
     the first occurence of digit and the last occurence of digit in this order.
@@ -47,16 +47,15 @@ def get_number(line: str, part: PART) -> int:
     ----------
     line : str
         Line of the input file.
-    part : PART
-        Part of the daily problem - 1 or 2.
+    pattern : Pattern
+        Compiled regex pattern for finding number.
 
     Returns
     -------
     int
         Extracted int number from the line.
     """
-    regex = REGEX[part]
-    matches = regex.findall(line)
+    matches = pattern.findall(line)
     matches = [REPLACES.get(m, m) for m in matches]
     return int(f"{matches[0]}{matches[-1]}")
 
@@ -79,7 +78,11 @@ def main(part: PART) -> int:
     with open(INPUT, "r") as f:
         lines = f.readlines()
 
-    return sum(get_number(line=line, part=part) for line in lines)
+    pattern = REGEX.get(part)
+    if pattern is None:
+        raise ValueError(f"Invalid part of the problem: '{part}', must be 1 or 2.")
+
+    return sum(get_number(line=line, pattern=pattern) for line in lines)
 
 
 if __name__ == "__main__":
