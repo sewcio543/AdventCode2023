@@ -26,3 +26,5 @@ Place to share solutions to AdventCode2023 problems
 ### --- Day 10: Pipe Maze ---
 
 ### --- Day 11: Cosmic Expansion ---
+
+### --- Day 12: Hot Springs ---
