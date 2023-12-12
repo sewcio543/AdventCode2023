@@ -12,14 +12,14 @@ def calculate_possible_scores(time):
 def when_reached(n, goal):
     counter = 0
     when = False
-    while when == False:
+    while when is False:
         if (n - counter) * counter >= goal:
             when = True
         counter += 1
     return counter - 1
 
 
-# Part 1
+# Part 1W
 
 times = lines[0].split(" ")
 times = [int(i) for i in times if i.isdigit()]
