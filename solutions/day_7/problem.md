@@ -37,3 +37,21 @@ QQQJA 483
 <p>Now, you can determine the total winnings of this set of hands by adding up the result of multiplying each hand's bid with its rank (<code>765</code> * 1 + <code>220</code> * 2 + <code>28</code> * 3 + <code>684</code> * 4 + <code>483</code> * 5). So the <em>total winnings</em> in this example are <code><em>6440</em></code>.</p>
 <p>Find the rank of every hand in your set. <em>What are the total winnings?</em></p>
 </article>
+<article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>To make things a little more interesting, the Elf introduces one additional rule. Now, <code>J</code> cards are <a href="https://en.wikipedia.org/wiki/Joker_(playing_card)" target="_blank">jokers</a> - wildcards that can act like whatever card would make the hand the strongest type possible.</p>
+<p>To balance this, <em><code>J</code> cards are now the weakest</em> individual cards, weaker even than <code>2</code>. The other cards stay in the same order: <code>A</code>, <code>K</code>, <code>Q</code>, <code>T</code>, <code>9</code>, <code>8</code>, <code>7</code>, <code>6</code>, <code>5</code>, <code>4</code>, <code>3</code>, <code>2</code>, <code>J</code>.</p>
+<p><code>J</code> cards can pretend to be whatever card is best for the purpose of determining hand type; for example, <code>QJJQ2</code> is now considered <em>four of a kind</em>. However, for the purpose of breaking ties between two hands of the same type, <code>J</code> is always treated as <code>J</code>, not the card it's pretending to be: <code>JKKK2</code> is weaker than <code>QQQQ2</code> because <code>J</code> is weaker than <code>Q</code>.</p>
+<p>Now, the above example goes very differently:</p>
+<pre style="position: relative;"><code>32T3K 765
+T55J5 684
+KK677 28
+KTJJT 220
+QQQJA 483
+</code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+<ul>
+<li><code>32T3K</code> is still the only <em>one pair</em>; it doesn't contain any jokers, so its strength doesn't increase.</li>
+<li><code>KK677</code> is now the only <em>two pair</em>, making it the second-weakest hand.</li>
+<li><code>T55J5</code>, <code>KTJJT</code>, and <code>QQQJA</code> are now all <em>four of a kind</em>! <code>T55J5</code> gets rank 3, <code>QQQJA</code> gets rank 4, and <code>KTJJT</code> gets rank 5.</li>
+</ul>
+<p>With the new joker rule, the total winnings in this example are <code><em>5905</em></code>.</p>
+<p>Using the new joker rule, find the rank of every hand in your set. <em>What are the new total winnings?</em></p>
+</article>
