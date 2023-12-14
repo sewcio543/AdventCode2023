@@ -30,3 +30,5 @@ Place to share solutions to AdventCode2023 problems
 ### --- Day 12: Hot Springs ---
 
 ### --- Day 13: Point of Incidence ---
+
+### --- Day 14: Parabolic Reflector Dish ---
