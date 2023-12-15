@@ -32,3 +32,5 @@ Place to share solutions to AdventCode2023 problems
 ### --- Day 13: Point of Incidence ---
 
 ### --- Day 14: Parabolic Reflector Dish ---
+
+### --- Day 15: Lens Library ---
