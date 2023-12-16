@@ -34,3 +34,5 @@ Place to share solutions to AdventCode2023 problems
 ### --- Day 14: Parabolic Reflector Dish ---
 
 ### --- Day 15: Lens Library ---
+
+### --- Day 16: The Floor Will Be Lava ---
