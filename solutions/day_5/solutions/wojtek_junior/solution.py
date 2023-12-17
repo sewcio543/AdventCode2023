@@ -149,6 +149,7 @@ def main(part: PART) -> int:
     if part == 1:
         return min(chain[seed] for seed in seeds)
 
+    #! TODO brute force - lol
     elif part == 2:
         return min(
             chain[number]
