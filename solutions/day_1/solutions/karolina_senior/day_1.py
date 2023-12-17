@@ -6,22 +6,18 @@ Advent of code 2023 - day 1
 # Reading a file
 # ------------------------------------------------------------------------------
 
-PATH = r'input_1.txt'
+PATH = r"input_1.txt"
 file = open(PATH, "r", encoding="utf-8").read()
-file = file.split('\n')
-file = [elem for elem in file if len(elem)>0]
+file = file.split("\n")
+file = [elem for elem in file if len(elem) > 0]
 
 
 # Functions definition
 # ------------------------------------------------------------------------------
 
-def _find_type(
-    row: str,
-    key: str,
-    right: bool
-) -> int:
 
-    '''
+def _find_type(row: str, key: str, right: bool) -> int:
+    """
     Function returning proper find method applied on row to search for key\
     depending of direction parameter right
 
@@ -39,16 +35,12 @@ def _find_type(
         location of the key in row if exist or -1 if not present
         - rfind if right is True
         - find if right is False
-    '''
+    """
 
     return row.rfind(key) if right is True else row.find(key)
 
 
-def get_indexes(
-    row_list: list,
-    right: bool
-):
-
+def get_indexes(row_list: list, right: bool):
     """
     Returns list of first locations of word or numerical digits from 1 to 9 per each row,\
     considering direction predefined by right parameter
@@ -63,18 +55,37 @@ def get_indexes(
     Returns
     -------
     key_loc: list
-        list of first or last occurence of any of 1-9 digits per each row in row_list    
+        list of first or last occurence of any of 1-9 digits per each row in row_list
     """
 
     map_dic = {
-        'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5,
-        'six': 6, 'seven': 7, 'eight': 8, 'nine': 9,
-        '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9
+        "one": 1,
+        "two": 2,
+        "three": 3,
+        "four": 4,
+        "five": 5,
+        "six": 6,
+        "seven": 7,
+        "eight": 8,
+        "nine": 9,
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 4,
+        "5": 5,
+        "6": 6,
+        "7": 7,
+        "8": 8,
+        "9": 9,
     }
 
-    location = [[_find_type(row, key, right) for key in map_dic if _find_type(row, key, right)!= -1
-                ] for row in row_list]
-    key_name = [[key for key in map_dic if _find_type(row, key, right)!= -1] for row in row_list]
+    location = [
+        [_find_type(row, key, right) for key in map_dic if _find_type(row, key, right) != -1]
+        for row in row_list
+    ]
+    key_name = [
+        [key for key in map_dic if _find_type(row, key, right) != -1] for row in row_list
+    ]
 
     # Rearange results
     order = [sorted(range(len(row)), key=lambda i: row[i]) for row in location]
@@ -90,8 +101,8 @@ def get_indexes(
 # ------------------------------------------------------------------------------
 
 start = [[digit for digit in list(elem) if digit.isdigit()][0] for elem in file]
-stop = [[digit for digit in list(elem)if digit.isdigit()][-1] for elem in file]
-output = [''.join([a, b]) for a, b in zip(start, stop)]
+stop = [[digit for digit in list(elem) if digit.isdigit()][-1] for elem in file]
+output = ["".join([a, b]) for a, b in zip(start, stop)]
 print(f"Part 1: {sum((int(elem) for elem in output))}")
 
 
@@ -100,6 +111,6 @@ print(f"Part 1: {sum((int(elem) for elem in output))}")
 
 key_start = get_indexes(file, False)
 key_end = get_indexes(file, True)
-key_values = [''.join([str(start), str(end)]) for start, end in zip(key_start, key_end)]
+key_values = ["".join([str(start), str(end)]) for start, end in zip(key_start, key_end)]
 
 print(f"Part 2: {str(sum((int(elem) for elem in key_values)))}")
