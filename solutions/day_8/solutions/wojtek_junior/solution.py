@@ -141,7 +141,7 @@ def parse_graph(lines: list) -> dict[str, Node]:
 
 def main(part: PART) -> int:
     """
-    Calculates the solution to the problem from Day 7.
+    Calculates the solution to the problem from Day 8.
 
     Parameters
     ----------
