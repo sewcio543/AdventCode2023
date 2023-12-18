@@ -31,7 +31,7 @@ num_dict = {
 # find first/last digit in in each line, convert based on dict, concatenate and sum them
 answer_p1 = sum(
     [
-        int(re.findall(pattern="\d", string=i)[0] + re.findall(pattern="\d", string=i)[-1])
+        int(re.findall(pattern=r"\d", string=i)[0] + re.findall(pattern=r"\d", string=i)[-1])
         for i in lines
     ]
 )
