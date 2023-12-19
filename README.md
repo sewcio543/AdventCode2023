@@ -40,3 +40,5 @@ Place to share solutions to AdventCode2023 problems
 ### --- Day 17: Clumsy Crucible ---
 
 ### --- Day 18: Lavaduct Lagoon ---
+
+### --- Day 19: Aplenty ---
