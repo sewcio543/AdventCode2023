@@ -42,7 +42,7 @@ lines = ("").join(lines)
 special_characters = list(set([i for i in lines if not i.isalnum() and i != "."]))
 special_characters = "|".join(re.escape(x) for x in special_characters)
 special_characters = [i for i in re.finditer(special_characters, lines)]
-numbers = [i for i in re.finditer("\d+", lines)]
+numbers = [i for i in re.finditer(r"\d+", lines)]
 
 
 adjacent_sum = 0
@@ -79,7 +79,7 @@ lines = ("").join(lines)
 stars = list(set([i for i in lines if i == "*"]))
 stars = "|".join(re.escape(x) for x in stars)
 stars = [i for i in re.finditer(stars, lines)]
-numbers = [i for i in re.finditer("\d+", lines)]
+numbers = [i for i in re.finditer(r"\d+", lines)]
 
 # now looking for  EXACTLY 2 neighbours
 adjacent_sum = 0
