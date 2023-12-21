@@ -44,3 +44,5 @@ Place to share solutions to AdventCode2023 problems
 ### --- Day 19: Aplenty ---
 
 ### --- Day 20: Pulse Propagation ---
+
+### --- Day 21: Step Counter ---
