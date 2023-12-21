@@ -83,3 +83,90 @@ LJ...
 </code></pre>
 <p>Find the single giant loop starting at <code>S</code>. <em>How many steps along the loop does it take to get from the starting position to the point farthest from the starting position?</em></p>
 </article>
+<article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>You quickly reach the farthest point of the loop, but the animal never emerges. Maybe its nest is <em>within the area enclosed by the loop</em>?</p>
+<p>To determine whether it's even worth taking the time to search for such a nest, you should calculate how many tiles are contained within the loop. For example:</p>
+<pre style="position: relative;"><code>...........
+.S-------7.
+.|F-----7|.
+.||.....||.
+.||.....||.
+.|L-7.F-J|.
+.|..|.|..|.
+.L--J.L--J.
+...........
+</code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+<p>The above loop encloses merely <em>four tiles</em> - the two pairs of <code>.</code> in the southwest and southeast (marked <code>I</code> below). The middle <code>.</code> tiles (marked <code>O</code> below) are <em>not</em> in the loop. Here is the same loop again with those regions marked:</p>
+<pre style="position: relative;"><code>...........
+.S-------7.
+.|F-----7|.
+.||<em>OOOOO</em>||.
+.||<em>OOOOO</em>||.
+.|L-7<em>O</em>F-J|.
+.|<em>II</em>|<em>O</em>|<em>II</em>|.
+.L--J<em>O</em>L--J.
+.....<em>O</em>.....
+</code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+<p>In fact, there doesn't even need to be a full tile path to the outside for tiles to count as outside the loop - squeezing between pipes is also allowed! Here, <code>I</code> is still within the loop and <code>O</code> is still outside the loop:</p>
+<pre style="position: relative;"><code>..........
+.S------7.
+.|F----7|.
+.||<em>OOOO</em>||.
+.||<em>OOOO</em>||.
+.|L-7F-J|.
+.|<em>II</em>||<em>II</em>|.
+.L--JL--J.
+..........
+</code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+<p>In both of the above examples, <code><em>4</em></code> tiles are enclosed by the loop.</p>
+<p>Here's a larger example:</p>
+<pre style="position: relative;"><code>.F----7F7F7F7F-7....
+.|F--7||||||||FJ....
+.||.FJ||||||||L7....
+FJL7L7LJLJ||LJ.L-7..
+L--J.L7...LJS7F-7L7.
+....F-J..F7FJ|L7L7L7
+....L7.F7||L7|.L7L7|
+.....|FJLJ|FJ|F7|.LJ
+....FJL-7.||.||||...
+....L---J.LJ.LJLJ...
+</code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+<p>The above sketch has many random bits of ground, some of which are in the loop (<code>I</code>) and some of which are outside it (<code>O</code>):</p>
+<pre style="position: relative;"><code><em>O</em>F----7F7F7F7F-7<em>OOOO</em>
+<em>O</em>|F--7||||||||FJ<em>OOOO</em>
+<em>O</em>||<em>O</em>FJ||||||||L7<em>OOOO</em>
+FJL7L7LJLJ||LJ<em>I</em>L-7<em>OO</em>
+L--J<em>O</em>L7<em>III</em>LJS7F-7L7<em>O</em>
+<em>OOOO</em>F-J<em>II</em>F7FJ|L7L7L7
+<em>OOOO</em>L7<em>I</em>F7||L7|<em>I</em>L7L7|
+<em>OOOOO</em>|FJLJ|FJ|F7|<em>O</em>LJ
+<em>OOOO</em>FJL-7<em>O</em>||<em>O</em>||||<em>OOO</em>
+<em>OOOO</em>L---J<em>O</em>LJ<em>O</em>LJLJ<em>OOO</em>
+</code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+<p>In this larger example, <code><em>8</em></code> tiles are enclosed by the loop.</p>
+<p>Any tile that isn't part of the main loop can count as being enclosed by the loop. Here's another example with many bits of junk pipe lying around that aren't connected to the main loop at all:</p>
+<pre style="position: relative;"><code>FF7FSF7F7F7F7F7F---7
+L|LJ||||||||||||F--J
+FL-7LJLJ||||||LJL-77
+F--JF--7||LJLJ7F7FJ-
+L---JF-JLJ.||-FJLJJ7
+|F|F-JF---7F7-L7L|7|
+|FFJF7L7F-JF7|JL---7
+7-L-JL7||F7|L7F-7F7|
+L.L7LFJ|||||FJL7||LJ
+L7JLJL-JLJLJL--JLJ.L
+</code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+<p>Here are just the tiles that are <em>enclosed by the loop</em> marked with <code>I</code>:</p>
+<pre style="position: relative;"><code>FF7FSF7F7F7F7F7F---7
+L|LJ||||||||||||F--J
+FL-7LJLJ||||||LJL-77
+F--JF--7||LJLJ<em>I</em>F7FJ-
+L---JF-JLJ<em>IIII</em>FJLJJ7
+|F|F-JF---7<em>III</em>L7L|7|
+|FFJF7L7F-JF7<em>II</em>L---7
+7-L-JL7||F7|L7F-7F7|
+L.L7LFJ|||||FJL7||LJ
+L7JLJL-JLJLJL--JLJ.L
+</code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+<p>In this last example, <code><em>10</em></code> tiles are enclosed by the loop.</p>
+<p>Figure out whether you have time to search for the nest by calculating the area within the loop. <em>How many tiles are enclosed by the loop?</em></p>
+</article>
