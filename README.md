@@ -46,3 +46,5 @@ Place to share solutions to AdventCode2023 problems
 ### --- Day 20: Pulse Propagation ---
 
 ### --- Day 21: Step Counter ---
+
+### --- Day 22: Sand Slabs ---
