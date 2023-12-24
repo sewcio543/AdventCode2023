@@ -50,3 +50,5 @@ Place to share solutions to AdventCode2023 problems
 ### --- Day 22: Sand Slabs ---
 
 ### --- Day 23: A Long Walk ---
+
+### --- Day 24: Never Tell Me The Odds ---
