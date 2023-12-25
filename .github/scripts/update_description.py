@@ -64,7 +64,11 @@ def main(day: int) -> None:
     soup = BeautifulSoup(response.text, "lxml")
     description = soup.select_one(DESC_SELECTOR)
 
-    path = os.path.join("solutions", f"day_{day}", "problem.md")
+    directory = os.path.join("solutions", f"day_{day}")
+    path = os.path.join(directory, "problem.md")
+
+    if not os.path.exists(directory):
+        os.mkdir(directory)
 
     with open(path, "w") as file:
         file.write(str(description))

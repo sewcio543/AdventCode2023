@@ -52,3 +52,5 @@ Place to share solutions to AdventCode2023 problems
 ### --- Day 23: A Long Walk ---
 
 ### --- Day 24: Never Tell Me The Odds ---
+
+### --- Day 25: Snowverload ---
