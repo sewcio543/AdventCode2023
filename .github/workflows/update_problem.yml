@@ -6,8 +6,8 @@ on:
       chosen_day:
         description: "Choose a day of the month to update the problem description for."
         required: false
-  schedule:
-    - cron: "15 6 * * *" # Runs every day at 7:15 AM UTC+1
+  # schedule:
+  #   - cron: "15 6 1-25 12 *" # Runs every day at 7:15 AM UTC+1 only 1-25 Dec
 
 permissions: write-all
 
